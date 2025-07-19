@@ -65,7 +65,7 @@ in
     
     # It's highly recommended to enable the firewall on a server.
     firewall = {
-      enable = true;
+      enable = false;
       
       # This will allow you to SSH into your server.
       allowedTCPPorts = [ 22 ];
