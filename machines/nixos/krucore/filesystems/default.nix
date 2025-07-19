@@ -42,7 +42,7 @@ in
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/eeb37e6a-245b-4b97-8d26-bab6f0d793e5";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd:2" ];
+      options = [ "subvol=@nix" "compress=zstd:2" ];
       neededForBoot = true;
     };
 
