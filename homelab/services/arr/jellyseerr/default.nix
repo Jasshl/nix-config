@@ -44,7 +44,12 @@ in
       port = cfg.port;
       configDir = cfg.configDir;
     };
-    systemd.services.${service}.serviceConfig.ReadWritePaths = [ cfg.configDir ];
+    systemd = {
+      tmpfiles.rules = [
+        "d ${cfg.configDir} 0777 ${homelab.user} ${homelab.group} -"
+      ];
+      services.${service}.serviceConfig.ReadWritePaths = [ cfg.configDir ];
+    };
     services.caddy.virtualHosts."${cfg.url}" = {
       useACMEHost = homelab.baseDomain;
       extraConfig = ''
