@@ -30,6 +30,17 @@
       };
     };
   };
+
+  {
+  # Add this block if not present:
+  users.groups.bluetooth = {};
+
+  # Then make sure your user is added to it:
+  users.users.jashi = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "bluetooth" ]; # add bluetooth here
+  };
+}
   programs.zsh.enable = true;
 
 }
