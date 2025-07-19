@@ -5,6 +5,17 @@
 {
   nix.settings.trusted-users = [ "jashi" ];
 
+
+  # Add this block if not present:
+  users.groups.bluetooth = {};
+
+  # Then make sure your user is added to it:
+  users.users.yourusername = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "bluetooth" ]; # add bluetooth here
+  };
+
+
   users = {
     users = {
       jashi = {
@@ -29,17 +40,7 @@
         gid = 1000;
       };
     };
-
-  {
-  # Add this block if not present:
-  users.groups.bluetooth = {};
-
-  # Then make sure your user is added to it:
-  users.users.jashi = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "bluetooth" ]; # add bluetooth here
   };
-}
   programs.zsh.enable = true;
 
 }
