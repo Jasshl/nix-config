@@ -10,23 +10,23 @@ in
     timeZone = "Europe/Bratislava";
     mounts = {
       config = "/persist/opt/services";
-      Exos1_8tb = "/mnt/Exos1_8tb";
-      GreenStorage = "/mnt/GreenStorage";
-      BlueStorage = "/mnt/BlueStorage";
+      Exos1 = "/mnt/Exos1";
+      Green = "/mnt/Green";
+      Blue = "/mnt/Blue";
       Arch = "/mnt/Arch";
     };
     samba = {
       enable = true;
       passwordFile = config.age.secrets.sambaPassword.path;
       shares = {
-        Exos1_8tb = {
-          path = "${hl.mounts.Exos1_8tb}";
+        Exos1 = {
+          path = "${hl.mounts.Exos1}";
         };
-        GreenStorage = {
-          path = hl.mounts.GreenStorage;
+        Green = {
+          path = hl.mounts.Green;
         };
-        BlueStorage = {
-          path = hl.mounts.BlueStorage;
+        Blue = {
+          path = hl.mounts.Blue;
         };
         Arch = {
           path = hl.mounts.Arch;
@@ -36,17 +36,27 @@ in
           "follow symlinks" = "yes";
           "wide links" = "yes";
         };
-        # TimeMachine = {
-        #   path = "${hl.mounts.Exos1_8tb}/TimeCapsule";
-        #   "fruit:time machine" = "yes";
-        # };
+        TimeMachine = {
+          path = "${hl.mounts.Exos1}/TimeMachine";
+          "vfs objects" = "fruit streams_xattr";
+          "ea support" = "yes";
+          "browsable" = "yes";
+          "read only" = "No";
+          "inherit acls" = "yes";
+          "fruit:time machine" = "yes";
+          "fruit:time machine max size" = "600 G";
+          "fruit:metadata" = "stream";
+          "fruit:posix_rename" = "yes";
+          "fruit:wipe_intentionally_left_blank_rdhashes" = "yes";
+          "fruit:delete_empty_adfiles" = "yes";
+        };
       };
     };
     services = {
       enable = true;
       immich = {
         enable = true;
-        mediaDir = "${hl.mounts.GreenStorage}/Photos";
+        mediaDir = "${hl.mounts.Green}/Photos";
       };
       /* homepage = {
         enable = true;

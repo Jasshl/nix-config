@@ -26,9 +26,9 @@ in
   users.users.jashi.extraGroups = [ "bluetooth" ];
 
   systemd.tmpfiles.rules = [
-    "d /mnt/Exos1_8tb 0755 root root -"
-    "d /mnt/BlueStorage 0755 root root -"
-    "d /mnt/GreenStorage 0755 root root -"
+    "d /mnt/Exos1 0755 root root -"
+    "d /mnt/Blue 0755 root root -"
+    "d /mnt/Green 0755 root root -"
     "d /mnt/Arch 0755 root root -"
   ];
 
@@ -53,19 +53,19 @@ in
       neededForBoot = true;
     };
 
-  fileSystems."/mnt/Exos1_8tb" =
+  fileSystems."/mnt/Exos1" =
     { device = "/dev/disk/by-uuid/49b5f06b-e767-4f94-9a00-f50058dfcabc";
       fsType = "btrfs";
       options = [ "compress=zstd:3" "noatime" "space_cache=v2" ];
     };
     
-  fileSystems."/mnt/GreenStorage" =
+  fileSystems."/mnt/Green" =
     { device = "/dev/disk/by-uuid/0f1c73dc-ba9e-4d92-a2cf-6b98b1ae8d51";
       fsType = "btrfs";
       options = [ "compress=zstd:2" "noatime" "space_cache=v2" ];
     };
 
-  fileSystems."/mnt/BlueStorage" =
+  fileSystems."/mnt/Blue" =
     { device = "/dev/disk/by-uuid/f2dd787a-8094-4165-805d-2ff6d157c044";
       fsType = "btrfs";
       options = [ "compress=zstd:2" "noatime" "space_cache=v2" ];

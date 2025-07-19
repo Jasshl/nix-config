@@ -12,25 +12,25 @@ in
         Path to the service configuration files
       '';
     };
-    mounts.Exos1_8tb = lib.mkOption {
-      default = "/mnt/Exos1_8tb";
+    mounts.Exos1 = lib.mkOption {
+      default = "/mnt/Exos1";
       type = lib.types.path;
       description = ''
-        Path to the Exos1_8tb (HDD 8TB)
+        Path to the Exos1 (HDD 8TB)
       '';
     };
-    mounts.BlueStorage = lib.mkOption {
-      default = "/mnt/BlueStorage";
+    mounts.Blue = lib.mkOption {
+      default = "/mnt/Blue";
       type = lib.types.path;
       description = ''
-        Path to the BlueStorage (HDD 4TB)
+        Path to the Blue (HDD 4TB)
       '';
     };
-    mounts.GreenStorage = lib.mkOption {
-      default = "/mnt/GreenStorage";
+    mounts.Green = lib.mkOption {
+      default = "/mnt/Green";
       type = lib.types.path;
       description = ''
-        Path to the GreenStorage (HDD 2TB)
+        Path to the Green (HDD 2TB)
       '';
     };
     mounts.Arch = lib.mkOption {
