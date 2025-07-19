@@ -106,6 +106,7 @@ in
         adminpassFile = config.age.secrets.nextcloudAdminPassword.path;
       };
       vaultwarden.enable = true;
+      qbittorrent.enable = true;
       /* audiobookshelf.enable = true; */
       # deluge.enable = true;
     };
