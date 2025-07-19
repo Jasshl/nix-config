@@ -53,24 +53,28 @@ in
   };
 
   networking = {
-    useDHCP = false;
+    # Use systemd-networkd for simple, reliable networking on servers.
     networkmanager.enable = false;
+    
+    # Set the name your server will have on the network.
     hostName = "krucore";
     
-    # Create a bridge that acts as a pure switch
-    bridges.br0 = {
-      interfaces = [ "enp1s0" "enp2s0" "enp3s0" "enp4s0" ];  # All ports bridged together
-    };
+    # Tell your specific network interface to get an IP address via DHCP.
+    # !!! IMPORTANT: Replace "eno1" with the name you found using `ip a` !!!
+    interfaces.enp1s0.useDHCP = true;
     
-    # The bridge itself gets IP from your main router
-    interfaces.br0.useDHCP = true;
-    
+    # It's highly recommended to enable the firewall on a server.
     firewall = {
-      enable = false;
+      enable = true;
+      
+      # This will allow you to SSH into your server.
+      allowedTCPPorts = [ 22 ];
+      
+      # Optional: Allow other devices on the network to ping your server.
       allowPing = true;
-      trustedInterfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
     };
   };
+
 
   imports = [
     ./homelab

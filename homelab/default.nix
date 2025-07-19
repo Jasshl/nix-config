@@ -12,32 +12,32 @@ in
         Path to the service configuration files
       '';
     };
-    mounts.Alumentum = lib.mkOption {
-      default = "/mnt/Alumentum";
+    mounts.Exos1_8tb = lib.mkOption {
+      default = "/mnt/Exos1_8tb";
       type = lib.types.path;
       description = ''
-        Path to the Alumentum (HDD 1TB)
+        Path to the Exos1_8tb (HDD 8TB)
       '';
     };
-    mounts.Nitor = lib.mkOption {
-      default = "/mnt/Nitor";
+    mounts.BlueStorage = lib.mkOption {
+      default = "/mnt/BlueStorage";
       type = lib.types.path;
       description = ''
-        Path to the Nitor (2x HDD RAID0 6TB)
+        Path to the BlueStorage (HDD 4TB)
       '';
     };
-    mounts.Wilson = lib.mkOption {
-      default = "/mnt/Wilson";
+    mounts.GreenStorage = lib.mkOption {
+      default = "/mnt/GreenStorage";
       type = lib.types.path;
       description = ''
-        Path to the Wilson (SSD 2TB, subvolume on system disk)
+        Path to the GreenStorage (HDD 2TB)
       '';
     };
-    mounts.Tallow = lib.mkOption {
-      default = "/mnt/Tallow";
+    mounts.Arch = lib.mkOption {
+      default = "/mnt/Arch";
       type = lib.types.path;
       description = ''
-        Path to the Tallow (SSD 256GB)
+        Path to the Arch (SSD 512GB)
       '';
     };
     user = lib.mkOption {
