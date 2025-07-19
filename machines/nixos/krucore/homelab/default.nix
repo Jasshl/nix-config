@@ -10,10 +10,10 @@ in
     timeZone = "Europe/Bratislava";
     mounts = {
       config = "/persist/opt/services";
-      Alumentum = "/mnt/Alumentum";
-      Nitor = "/mnt/Nitor";
-      Wilson = "/mnt/Wilson";
-      Tallow = "/mnt/Tallow";
+      Exos1_8tb = "/mnt/Exos1_8tb";
+      GreenStorage = "/mnt/GreenStorage";
+      BlueStorage = "/mnt/BlueStorage";
+      Arch = "/mnt/Arch";
     };
     samba = {
       enable = true;
@@ -46,7 +46,7 @@ in
       enable = true;
       immich = {
         enable = true;
-        mediaDir = "${hl.mounts.Nitor}/Photos";
+        mediaDir = "${hl.mounts.GreenStorage}/Photos";
       };
       /* homepage = {
         enable = true;
@@ -58,7 +58,7 @@ in
               in
               {
                 href = "https://${ip}";
-                siteMonitor = "https://${ip}";
+                siteMoGreenStorage = "https://${ip}";
                 description = "Open-source KVM solution";
                 icon = "pikvm.png";
               };
@@ -66,7 +66,7 @@ in
           {
             FritzBox = {
               href = "http://192.168.178.1";
-              siteMonitor = "http://192.168.178.1";
+              siteMoGreenStorage = "http://192.168.178.1";
               description = "Cable Modem WebUI";
               icon = "avm-fritzbox.png";
             };
@@ -76,7 +76,7 @@ in
               href = "https://photos.aria.goose.party";
               description = "Self-hosted photo and video management solution";
               icon = "immich.svg";
-              siteMonitor = "";
+              siteMoGreenStorage = "";
             };
           }
         ];
