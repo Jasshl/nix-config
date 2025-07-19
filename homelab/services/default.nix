@@ -77,10 +77,10 @@
     #./arr/lidarr
     # ./audiobookshelf
     ./qbittorrent
-    # ./homepage
+    ./homepage
     ./immich
     ./jellyfin
-    ./nextcloud
+    #./nextcloud
     ./homeassistant
     # ./paperless-ngx
     # ./uptime-kuma

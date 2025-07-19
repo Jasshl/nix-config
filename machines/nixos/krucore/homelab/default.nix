@@ -56,41 +56,21 @@ in
       enable = true;
       immich = {
         enable = true;
-        mediaDir = "${hl.mounts.Green}/Photos";
+        mediaDir = "${hl.mounts.Exos1}/Immich";
       };
-      /* homepage = {
+      homepage = {
         enable = true;
         misc = [
           {
-            PiKVM =
-              let
-                ip = config.homelab.networks.local.lan.reservations.pikvm.Address;
-              in
-              {
-                href = "https://${ip}";
-                siteMoGreenStorage = "https://${ip}";
-                description = "Open-source KVM solution";
-                icon = "pikvm.png";
-              };
-          }
-          {
             FritzBox = {
-              href = "http://192.168.178.1";
-              siteMoGreenStorage = "http://192.168.178.1";
+              href = "http://192.168.100.1";
+              siteMonitor = "http://192.168.100.1";
               description = "Cable Modem WebUI";
               icon = "avm-fritzbox.png";
             };
           }
-          {
-            "Immich (Parents)" = {
-              href = "https://photos.aria.goose.party";
-              description = "Self-hosted photo and video management solution";
-              icon = "immich.svg";
-              siteMoGreenStorage = "";
-            };
-          }
         ];
-      }; */
+      };
       homeassistant.enable = true;
       jellyfin.enable = true;
       /* paperless = {
@@ -101,10 +81,10 @@ in
       radarr.enable = true;
       prowlarr.enable = true;
       jellyseerr.enable = true;
-      nextcloud = {
-        enable = true;
-        adminpassFile = config.age.secrets.nextcloudAdminPassword.path;
-      };
+      # nextcloud = {
+      #   enable = true;
+      #   adminpassFile = config.age.secrets.nextcloudAdminPassword.path;
+      # };
       vaultwarden.enable = true;
       qbittorrent.enable = true;
       /* audiobookshelf.enable = true; */
