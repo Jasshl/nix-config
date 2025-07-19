@@ -19,27 +19,27 @@ in
       enable = true;
       passwordFile = config.age.secrets.sambaPassword.path;
       shares = {
-        Alumentum = {
-          path = "${hl.mounts.Alumentum}/media";
+        Exos1_8tb = {
+          path = "${hl.mounts.Exos1_8tb}";
         };
-        Nitor = {
-          path = hl.mounts.Nitor;
+        GreenStorage = {
+          path = hl.mounts.GreenStorage;
         };
-        Wilson = {
-          path = hl.mounts.Wilson;
+        BlueStorage = {
+          path = hl.mounts.BlueStorage;
         };
-        Tallow = {
-          path = hl.mounts.Tallow;
+        Arch = {
+          path = hl.mounts.Arch;
         };
         config = {
           path = hl.mounts.config;
           "follow symlinks" = "yes";
           "wide links" = "yes";
         };
-        TimeMachine = {
-          path = "${hl.mounts.Nitor}/TimeCapsule";
-          "fruit:time machine" = "yes";
-        };
+        # TimeMachine = {
+        #   path = "${hl.mounts.Exos1_8tb}/TimeCapsule";
+        #   "fruit:time machine" = "yes";
+        # };
       };
     };
     services = {
