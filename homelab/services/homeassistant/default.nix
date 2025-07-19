@@ -38,7 +38,7 @@ in
     services.caddy.virtualHosts."${cfg.url}" = {
       useACMEHost = homelab.baseDomain;
       extraConfig = ''
-        reverse_proxy http://10.0.0.5:8123
+        reverse_proxy http://192.168.100.100:8123
       '';
     };
     virtualisation = {
