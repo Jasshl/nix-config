@@ -50,9 +50,14 @@ in
             autoStart = true;
             extraOptions = [
               "--pull=newer"
+              "--network=host"      # <-- added for BLE & mDNS
+              "--privileged"        # <-- added for /dev/hci access & D-Bus
             ];
             volumes = [
               "${cfg.configDir}:/config"
+              "/run/dbus:/run/dbus:ro"           # <-- added to mount host D-Bus
+              "/etc/localtime:/etc/localtime:ro" # <-- added for timezone
+              "/etc/machine-id:/etc/machine-id:ro" # <-- added for container identity
             ];
             ports = [
               "8123:8123"
@@ -62,6 +67,7 @@ in
               TZ = homelab.timeZone;
               PUID = toString config.users.users.${homelab.user}.uid;
               PGID = toString config.users.groups.${homelab.group}.gid;
+              DBUS_SYSTEM_BUS_ADDRESS = "unix:path=/run/dbus/system_bus_socket";
             };
           };
         };
