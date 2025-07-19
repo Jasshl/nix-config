@@ -29,7 +29,6 @@
         gid = 1000;
       };
     };
-  };
 
   {
   # Add this block if not present:
