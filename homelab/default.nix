@@ -41,7 +41,7 @@ in
       '';
     };
     user = lib.mkOption {
-      default = "magic_sk";
+      default = "jashi";
       type = lib.types.str;
       description = ''
         User to run the homelab services as
@@ -49,7 +49,7 @@ in
       #apply = old: builtins.toString config.users.users."${old}".uid;
     };
     group = lib.mkOption {
-      default = "magic_sk";
+      default = "jashi";
       type = lib.types.str;
       description = ''
         Group to run the homelab services as
@@ -64,7 +64,7 @@ in
       '';
     };
     baseDomain = lib.mkOption {
-      default = "magicsk.eu";
+      default = "j.magicsk.eu";
       type = lib.types.str;
       description = ''
         Base domain name to be used to access the homelab services via Caddy reverse proxy

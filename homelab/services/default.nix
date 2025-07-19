@@ -16,7 +16,7 @@
     ];
     security.acme = {
       acceptTerms = true;
-      defaults.email = "minemagicsk@gmail.com";
+      defaults.email = "janhucko@protonmail.com";
       certs.${config.homelab.baseDomain} = {
         reloadServices = [ "caddy.service" ];
         domain = "${config.homelab.baseDomain}";

@@ -45,7 +45,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     secrets = {
-      url = "git+ssh://git@github.com/magicsk/nix-private.git?ref=main";
+      url = "git+ssh://git@github.com/Jasshl/nix-private.git?ref=main";
       flake = false;
     };
     alga = {
@@ -76,7 +76,7 @@
           };
         }
       ))
-     (mkNixos "magic-pylon" inputs.nixpkgs [
+     (mkNixos "krucore" inputs.nixpkgs [
         ./homelab
         inputs.home-manager.nixosModules.home-manager
       ])

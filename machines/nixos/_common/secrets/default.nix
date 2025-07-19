@@ -6,7 +6,7 @@
   age = {
     identityPaths = [
       "/etc/ssh/ssh_host_ed25519_key"
-      "/home/magic_sk/.ssh/id_rsa"
+      "/home/jashi/.ssh/id_rsa"
     ];
     secrets = {
       hashedUserPassword.file = "${inputs.secrets}/hashedUserPassword.age";

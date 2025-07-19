@@ -32,7 +32,7 @@
   time.timeZone = "Europe/Bratislava";
 
   users.users = {
-    magic_sk = {
+    jashi = {
       hashedPasswordFile = config.age.secrets.hashedUserPassword.path;
     };
     root = {

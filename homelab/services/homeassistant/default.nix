@@ -50,7 +50,6 @@ in
             autoStart = true;
             extraOptions = [
               "--pull=newer"
-              "--device=/dev/ttyUSB0:/dev/ttyUSB0"
             ];
             volumes = [
               "${cfg.configDir}:/config"

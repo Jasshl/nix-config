@@ -55,7 +55,7 @@ in
   networking = {
     useDHCP = false;
     networkmanager.enable = false;
-    hostName = "magic-pylon";
+    hostName = "krucore";
     
     # Create a bridge that acts as a pure switch
     bridges.br0 = {

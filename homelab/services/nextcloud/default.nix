@@ -19,7 +19,7 @@ in
     };
     adminuser = lib.mkOption {
       type = lib.types.str;
-      default = "magic_sk";
+      default = "jashi";
     };
     configDir = lib.mkOption {
       type = lib.types.str;

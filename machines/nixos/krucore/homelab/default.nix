@@ -5,7 +5,7 @@ in
 {
   homelab = {
     enable = true;
-    baseDomain = "magicsk.eu";
+    baseDomain = "j.magicsk.eu";
     cloudflare.dnsCredentialsFile = config.age.secrets.cloudflareDnsApiCredentials.path;
     timeZone = "Europe/Bratislava";
     mounts = {

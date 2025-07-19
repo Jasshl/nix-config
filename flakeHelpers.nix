@@ -5,11 +5,11 @@ let
     home-manager.extraSpecialArgs = {
       inherit inputs;
     };
-    home-manager.users.magic_sk.imports = [
+    home-manager.users.jashi.imports = [
       inputs.agenix.homeManagerModules.default
       inputs.nix-index-database.homeModules.nix-index
-      ./users/magic_sk/dots.nix
-      ./users/magic_sk/age.nix
+      ./users/jashi/dots.nix
+      ./users/jashi/age.nix
     ] ++ extraImports;
     home-manager.backupFileExtension = "bak";
     home-manager.useUserPackages = userPackages;
@@ -21,7 +21,7 @@ in
       hostname = machineHostname;
       profiles.system = {
         user = "root";
-        sshUser = "magic_sk";
+        sshUser = "jashi";
         path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos nixosConfigurations.${machineHostname};
       };
     };
@@ -36,7 +36,7 @@ in
         ./machines/nixos/${machineHostname}
         ./modules/auto-aspm
         inputs.agenix.nixosModules.default
-        ./users/magic_sk
+        ./users/jashi
         (homeManagerCfg false [ ])
       ] ++ extraModules;
     };

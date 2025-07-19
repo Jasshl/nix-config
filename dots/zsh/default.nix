@@ -42,8 +42,8 @@
         ya = "yt-dlp --continue --no-check-certificate --format=bestaudio -x --audio-format wav";
         aspm = "sudo lspci -vv | awk '/ASPM/{print $0}' RS= | grep --color -P '(^[a-z0-9:.]+|ASPM )'";
         mkdir = "mkdir -p";
-        renix = "sudo nixos-rebuild switch --flake /etc/nixos#magic-pylon";
-        testnix = "sudo nixos-rebuild test --flake /etc/nixos#magic-pylon";
+        renix = "sudo nixos-rebuild switch --flake /etc/nixos#krucore";
+        testnix = "sudo nixos-rebuild test --flake /etc/nixos#krucore";
         s = "sudo";
         i = "yay -S";
         u = "yay -Sy";
