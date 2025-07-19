@@ -7,11 +7,29 @@ let
   hl = config.homelab;
 in
 {
+
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true; # Optional: power on Bluetooth by default
+  
+  # Enable Bluetooth manager (blueman is popular)
+  services.blueman.enable = false;
+  services.dbus.enable = true;
+
+  # Optional: install CLI tools like bluetoothctl
+  environment.systemPackages = with pkgs; [
+    bluez
+    bluez-tools
+  ];
+
+  # Make sure your user is in the necessary group
+  users.users.jashi.extraGroups = [ "bluetooth" ];
+
   systemd.tmpfiles.rules = [
-    "d /mnt/Wilson 0755 root root -"
-    "d /mnt/Alumentum 0755 root root -"
-    "d /mnt/Nitor 0755 root root -"
-    "d /mnt/Tallow 0755 root root -"
+    "d /mnt/Exos1_8tb 0755 root root -"
+    "d /mnt/BlueStorage 0755 root root -"
+    "d /mnt/GreenStorage 0755 root root -"
+    "d /mnt/Arch 0755 root root -"
   ];
 
   fileSystems."/" =
@@ -53,7 +71,7 @@ in
       options = [ "compress=zstd:2" "noatime" "space_cache=v2" ];
     };
 
-  fileSystems."/mnt/arch" =
+  fileSystems."/mnt/Arch" =
     { device = "/dev/disk/by-uuid/eeb37e6a-245b-4b97-8d26-bab6f0d793e5";
       fsType = "btrfs";
       options = [ "compress=zstd:2" "noatime" "space_cache=v2" ];
@@ -71,25 +89,7 @@ in
       size = 16*1024; # 16 GB
     }];
 
-    {
-  # Enable Bluetooth support
-  hardware.bluetooth.enable = true;
-
-  # Start the Bluetooth systemd service
-  services.blueman.enable = false; # set to true if using GUI (optional)
-  services.dbus.enable = true;
-
-  # Optional: install CLI tools like bluetoothctl
-  environment.systemPackages = with pkgs; [
-    bluez
-    bluez-tools
-    # Optional tools for debugging
-    usbutils # for lsusb
-  ];
-
-  # Optional: persist user group memberships
-  users.users.yourusername.extraGroups = [ "bluetooth" ];
-}
+    
 
   # services.smartd = {
   #   enable = true;
