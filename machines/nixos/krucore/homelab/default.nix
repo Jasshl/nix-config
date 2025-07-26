@@ -79,6 +79,7 @@ in
       }; */
       sonarr.enable = true;
       radarr.enable = true;
+      plex.enable = true;
       prowlarr.enable = true;
       jellyseerr.enable = true;
       # nextcloud = {
