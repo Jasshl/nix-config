@@ -85,5 +85,6 @@
     # ./paperless-ngx
     # ./uptime-kuma
     ./vaultwarden
+    ./plex
   ];
 }

@@ -56,7 +56,7 @@ in
       enable = true;
       immich = {
         enable = true;
-        mediaDir = "${hl.mounts.Exos1}/Immich";
+        mediaDir = "/persist/opt/services/immich";
       };
       homepage = {
         enable = true;

@@ -22,7 +22,7 @@ in
     };
     mediaDir = lib.mkOption {
       type = lib.types.path;
-      default = "${config.homelab.mounts.Nitor}/Photos";
+      default = "${config.homelab.mounts.Exos1}/Immich";
     };
     url = lib.mkOption {
       type = lib.types.str;
@@ -52,7 +52,6 @@ in
       "render"
     ];
     services.immich = {
-      group = homelab.group;
       enable = true;
       port = 2283;
       mediaLocation = "${cfg.mediaDir}";
