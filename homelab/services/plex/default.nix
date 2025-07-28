@@ -38,32 +38,24 @@ in
     };
   };
 
+  # 3. THE CRUCIAL PART: Map your options to the REAL NixOS Plex service
   config = lib.mkIf cfg.enable {
-    # This block configures the Plex service itself. No changes needed here.
+    # This block now configures services.plex.* instead of services.radarr.*
     services.${service} = {
       enable = true;
       dataDir = cfg.dataDir;
       user = homelab.user;
       group = homelab.group;
+      # This option is specific to the Plex module and very useful!
       openFirewall = true;
     };
 
-    # This block configures Caddy. No changes needed here.
+    # Update the reverse proxy to point to the correct Plex port (32400)
     services.caddy.virtualHosts."${cfg.url}" = {
       useACMEHost = homelab.baseDomain;
       extraConfig = ''
         reverse_proxy http://127.0.0.1:32400
       '';
-    };
-
-    # === COPY AND PASTE THIS BLOCK ===
-    # This modifies the systemd sandbox rules for the Plex service.
-    # It keeps the strong security of 'ProtectSystem=true' but adds an
-    # explicit exception, allowing Plex to read and write to your media folder.
-    systemd.services.plex = {
-      serviceConfig = {
-        ReadWritePaths = [ "/mnt/Exos1" ]; # <-- !!! REPLACE THIS PATH !!!
-      };
     };
   };
 }
