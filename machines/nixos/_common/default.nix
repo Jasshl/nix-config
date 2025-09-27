@@ -81,6 +81,8 @@
 
   homelab.motd.enable = true;
 
+  boot.kernelParams = [ "intel_idle.max_cstate=2" ];
+
   environment.systemPackages = with pkgs; [
     wget
     iperf3
