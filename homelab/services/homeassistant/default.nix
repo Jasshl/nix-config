@@ -50,7 +50,7 @@ in
             autoStart = true;
             extraOptions = [
               "--pull=newer"
-              "--network=host"      # <-- added for BLE & mDNS
+              #"--network=host"      # <-- added for BLE & mDNS
               "--privileged"        # <-- added for /dev/hci access & D-Bus
             ];
             volumes = [

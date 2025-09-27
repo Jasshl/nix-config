@@ -20,7 +20,7 @@ in
       passwordFile = config.age.secrets.sambaPassword.path;
       shares = {
         Exos1 = {
-          path = "${hl.mounts.Exos1}";
+          path = hl.mounts.Exos1;
         };
         Green = {
           path = hl.mounts.Green;
@@ -56,7 +56,6 @@ in
       enable = true;
       immich = {
         enable = true;
-        mediaDir = "${hl.mounts.Exos1}/Immich";
       };
       homepage = {
         enable = true;
@@ -79,6 +78,7 @@ in
       }; */
       sonarr.enable = true;
       radarr.enable = true;
+      plex.enable = true;
       prowlarr.enable = true;
       jellyseerr.enable = true;
       # nextcloud = {
