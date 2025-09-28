@@ -8,9 +8,9 @@
 let
   hl = config.homelab;
   hardDrives = [
+    "/dev/disk/by-uuid/f2dd787a-8094-4165-805d-2ff6d157c044" #blue
     "/dev/disk/by-uuid/49b5f06b-e767-4f94-9a00-f50058dfcabc" #exos1
     "/dev/disk/by-uuid/0f1c73dc-ba9e-4d92-a2cf-6b98b1ae8d51" #green
-    "/dev/disk/by-uuid/f2dd787a-8094-4165-805d-2ff6d157c044" #blue
   ];
 in
 {
