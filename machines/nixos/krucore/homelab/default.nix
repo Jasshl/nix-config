@@ -44,7 +44,7 @@ in
           "read only" = "No";
           "inherit acls" = "yes";
           "fruit:time machine" = "yes";
-          "fruit:time machine max size" = "750 G";
+          "fruit:time machine max size" = "740 G";
           "fruit:metadata" = "stream";
           "fruit:posix_rename" = "yes";
           "fruit:wipe_intentionally_left_blank_rdhashes" = "yes";
