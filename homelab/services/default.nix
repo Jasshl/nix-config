@@ -80,6 +80,8 @@
     ./homepage
     ./immich
     ./jellyfin
+    ./otbr
+    ./matter-server
     #./nextcloud
     ./homeassistant
     # ./paperless-ngx

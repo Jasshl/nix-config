@@ -87,6 +87,8 @@ in
       # };
       vaultwarden.enable = true;
       qbittorrent.enable = true;
+      otbr.enable = true;
+      matter-server.enable = true;
       /* audiobookshelf.enable = true; */
       # deluge.enable = true;
     };
