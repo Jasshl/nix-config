@@ -29,15 +29,20 @@ in
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
+        pkgs-unstable = import inputs.nixpkgs-unstable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
       };
       modules = [
         ./homelab
         ./machines/nixos/_common
         ./machines/nixos/${machineHostname}
-        ./modules/auto-aspm
         ./modules/qbittorrent
         inputs.agenix.nixosModules.default
+        inputs.autoaspm.nixosModules.default
         ./users/jashi
+        inputs.impermanence.nixosModules.impermanence
         (homeManagerCfg false [ ])
       ] ++ extraModules;
     };

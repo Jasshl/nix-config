@@ -81,7 +81,13 @@
 
   homelab.motd.enable = true;
 
-  boot.kernelParams = [ "intel_idle.max_cstate=2" ];
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = [
+      "/var/lib/nixos"
+      "/var/lib/systemd"
+    ];
+  };
 
   environment.systemPackages = with pkgs; [
     wget

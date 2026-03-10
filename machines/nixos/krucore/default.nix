@@ -14,9 +14,19 @@ let
   ];
 in
 {
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
+  nixpkgs.overlays = [
+    (final: prev: {
+      vaapiIntel = prev.vaapiIntel.override { enableHybridCodec = true; };
+      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+        (python-final: python-prev: {
+          psycopg = python-prev.psycopg.overridePythonAttrs (oldAttrs: {
+            doCheck = false;
+            pythonImportsCheck = [ "psycopg" "psycopg_c" ];
+          });
+        })
+      ];
+    })
+  ];
   hardware = {
     enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = true;
@@ -25,7 +35,7 @@ in
       extraPackages = with pkgs; [
         intel-media-driver
         intel-vaapi-driver
-        vaapiVdpau
+        libva-vdpau-driver
         intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
         vpl-gpu-rt # QSV on 11th gen or newer
       ];
@@ -134,7 +144,7 @@ in
     ];
   }; */
 
-  services.auto-aspm.enable = true;
+  services.autoaspm.enable = true;
   powerManagement.powertop.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -152,6 +162,11 @@ in
     xfsprogs
     parted
     btrfs-progs
+    wireguard-tools
+    dua
+    unzip
+    borgbackup
+    immich-cli
   ];
 
 /*   tg-notify = {

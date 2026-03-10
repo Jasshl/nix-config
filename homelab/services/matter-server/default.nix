@@ -23,9 +23,10 @@ in
     };
 
     boot.kernel.sysctl = {
-      # Enable IPv6 Forwarding so packets can move between br0 and wpan0
-      "net.ipv6.conf.a-.accept_ra_rt_info_max_plen" = 64;
-      "net.ipv6.conf.br0.accept_ra_rt_info_max_plen" = 64;
+      # Enable IPv6 forwarding so packets can move between enp1s0 and wpan0
+      "net.ipv6.conf.all.forwarding" = 1;
+      "net.ipv6.conf.all.accept_ra_rt_info_max_plen" = 64;
+      "net.ipv6.conf.enp1s0.accept_ra_rt_info_max_plen" = 64;
 
       # Optimize multicast handling for Matter/mDNS
       "net.ipv6.conf.all.mldv2_force_sysctl" = 1;
@@ -63,7 +64,7 @@ in
             ];
             cmd = [
               "--storage-path" "/data"
-              "--primary-interface" "br0"
+              "--primary-interface" "enp1s0"
             ];
           };
         };

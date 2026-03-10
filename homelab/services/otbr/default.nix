@@ -59,7 +59,7 @@ in
               "--privileged"
               "--cap-add=NET_ADMIN"
               "--cap-add=NET_RAW"
-              "--device=/dev/serial/by-id/usb-1a86_USB_Single_Serial_58CF091384-if00:/dev/ttyACM0"
+              "--device=/dev/serial/by-id/usb-1a86_USB_Single_Serial_5B3E117576-if00:/dev/ttyACM0"
               "--device=/dev/net/tun:/dev/net/tun"
             ];
             volumes = [
@@ -68,13 +68,13 @@ in
             ];
             environment = {
               OT_RCP_DEVICE = "spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=460800&uart-flow-control";
-              OT_INFRA_IF = "br0";
+              OT_INFRA_IF = "enp1s0";
               OT_THREAD_IF = "wpan0";
               OT_REST_LISTEN_ADDR = "0.0.0.0";
               OT_REST_LISTEN_PORT = "8081";
               OT_WEB_LISTEN_ADDR = "0.0.0.0";
               OT_WEB_LISTEN_PORT = "8085";
-              OT_BR_NAME = "magic-pylon-otbr";
+              OT_BR_NAME = "krucore-otbr";
               OT_LOG_LEVEL = "2";
             };
           };
