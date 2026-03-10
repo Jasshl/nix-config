@@ -56,6 +56,7 @@ in
             "create mask" = "0644";
             "directory mask" = "0755";
             "valid users" = hl.user;
+            "admin users" = hl.user;
             "fruit:aapl" = "yes";
             "vfs objects" = "catia fruit streams_xattr";
           }
