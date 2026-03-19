@@ -49,6 +49,7 @@ in
       "pcie_aspm=force"
       "consoleblank=60"
       "acpi_enforce_resources=lax"
+      "intel_idle.max_cstate=6" # prevent freezes from deepest C-states (C7+)
     ];
     kernelModules = [
       "kvm-intel"
